@@ -1,0 +1,342 @@
+docker login -u fer2146128
+paas: SRT@2022a
+
+
+docker -v
+docker --version
+docker pull mysql  (me descargo la imagen mysql)
+docker images (veo las imagenes disponibles)
+docker ps -a (lista los contenedores que tengo)
+docker ps (corriendo)
+
+docker stop $(docker ps -aq) (detener todos los contenedores)
+
+docker run nginx:alpine
+
+PS C:\Users\Fbartucci> docker build -t mi-imagen:1.0 C:\Users\Fbartucci\Documents\fer
+[+] Building 0.2s (2/2) FINISHED                                                                                                                 docker:default
+ => [internal] load .dockerignore                                                                                                                          0.0s
+ => => transferring context: 2B                                                                                                                            0.0s
+ => [internal] load build definition from Dockerfile                                                                                                       0.1s
+ => => transferring dockerfile: 2B                                                                                                                         0.0s
+ERROR: failed to solve: failed to read dockerfile: open /var/lib/docker/tmp/buildkit-mount323426898/Dockerfile: no such file or directory
+ejecuta el siguiente comando para verificar que puedes ejecutar un contenedor de ejemplo:
+
+--------------------------------------------------------------
+
+
+esta corriendo el nginx
+se levanto el servicio en el contenedor pero no tengo acceso 
+a la linea de comandos. estoy bloqueado
+al estar siendo utilizada por los logs del nginx
+
+
+2023/09/07 14:45:54 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14)
+2023/09/07 14:45:54 [notice] 1#1: OS: Linux 5.15.90.1-microsoft-standard-WSL2
+2023/09/07 14:45:54 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2023/09/07 14:45:54 [notice] 1#1: start worker processes
+2023/09/07 14:45:54 [notice] 1#1: start worker process 29
+2023/09/07 14:45:54 [notice] 1#1: start worker process 30
+2023/09/07 14:45:54 [notice] 1#1: start worker process 31
+2023/09/07 14:45:54 [notice] 1#1: start worker process 32
+2023/09/07 14:45:54 [notice] 1#1: start worker process 33
+2023/09/07 14:45:54 [notice] 1#1: start worker process 34
+2023/09/07 14:45:54 [notice] 1#1: start worker process 35
+2023/09/07 14:45:54 [notice] 1#1: start worker process 36
+
+-pudo cancelar la ejecucion de mi main process con ctrl c
+
+
+abro otra terminal y verifico con docker ps
+nos visualiza que esta corriendo en el port 80 de mi contenedor
+
+
+la maquina anfitriona no sabe que tiene un contenedor
+
+
+*exponer un contenedor
+docker run -d --name fer -p 8081:80 (de publish)  8081:80
+
+
+8081  port en el cual yo quiero acceder desde mi pc anfitrione
+80  port del contenedor el cual quiero exponer
+
+
+
+
+--------------------------------------------------------------
+
+sudo docker images
+sudo docker ps -a    (ver cuales estan en ejecucion)
+docker images ls
+docker rm $(sudo docker ps -aq)
+
+sudo docker run -d httpd
+sudo docker ps
+sudo docker stop 
+docker rm "nombre"  y lo elimina
+sudo docker rm$(sudo docker ps -aq) elimina todos los contenedores
+
+doker log
+
+
+tutorial con lemoncoders
+
+docker build --tag ubuntu-python .
+
+
+docker run -d --publish 3030:80 nginx
+4ed6adff3622500aba9cf67a8d27db4ed8bc5be89500a18d96fe92f33bdb2ed9
+
+docker en segundo plano
+
+
+docker run -d --publish-all  nginx (genero otro pero dejo que elija el port)
+0b4e53778a015da62fa2943a8c3b7139dfe9a862aa799627621ee55de61e7568
+
+
+
+HAY QUE COMUNICAR LOS CONTENEDORES
+docker attach container-1
+-docker network ls
+docker run --name container-a  --network lemoncode alpine ash
+
+
+
+
+
+
+
+
+
+root@SAR-138424:~# docker ps
+CONTAINER ID   IMAGE     COMMAND                  CREATED         STATUS         PORTS                   NAMES
+0b4e53778a01   nginx     "/docker-entrypoint.…"   5 seconds ago   Up 4 seconds   0.0.0.0:32768->80/tcp   dreamy_lewin
+4ed6adff3622   nginx     "/docker-entrypoint.…"   2 minutes ago   Up 2 minutes   0.0.0.0:3030->80/tcp    nice_napier
+root@SAR-138424:~# docker network ls
+
+
+
+
+
+
+---------------------------------------------
+necesitamos: 
+imagen, docker instalado y un contenedor.
+---------------------------------------------
+
+docker hub , repositorio oficial.
+docker pulll mongo
+docker grep images
+docker run -p 27017:27017 mongo
+
+--------------------------------------------
+proyecto de pelado nerd
+
+
+-crea un serv desde la nube
+-(tener en cuenta keys de ssh)
+-ssh root@ip
+-sudo apt-get removedocker-engine....
+-apt-get install \
+-add repository...
+-curl -f SSL...
+-apt get update
+-apt get instal docker
+
+-mkdir src
+cd src/
+ls
+vim index.php
+
+
+<?php 
+echo 'hello world';
+?>
+
+
+
+-vim Dockerfile
+FROM php:7.4.1 ....
+(buscamos una imagen oficial )
+
+
+https://aprendevops.com/como-crear-un-contenedor
+https://www.hostinger.com.ar/tutoriales/como-crear-contenedor-docker
+https://www.youtube.com/watch?v=vuV9JoHiYaU
+https://www.youtube.com/watch?v=Js-NW1McDU4
+
+------------------------------------------------
+REDES DOCKER
+
+sudo docker network ls - (ver los drivers de red)
+
+NETWORK ID     NAME                                                             DRIVER    SCOPE
+cb9988a62ef1   bridge                                                           bridge    local
+773681779f67   host                                                             host      local
+33166c9c631f   none                                                             null      local
+472d5dd3813c   portainer_portainer-docker-extension-desktop-extension_default   bridge    local
+
+Gestión de redes en Docker
+Antes de adentrarte en esto de las redes en Docker, te indico los comandos que tienes a tu alcance para gestionar las redes,
+
+connect te permitirá conectar un contenedore a un red
+disconnect hace la operación opuesta a la anterior, es decir, desconecta un contenedor de una red
+create es el comando que debes utilizar para crear una red
+inspect te permite obtener información detallada de una red
+ls es el comando a utilizar para ver las redes que tienes
+prune es el comando con el que borrará todas las redes que no estés utilizando
+rm te permite borrar una o mas redes
+
+
+
+---------------------------------------
+Usando docker-compose
+¿Cómo usar Docker Compose?
+
+ 
+
+¡Aquí viene lo mejor!. Una vez aprendidos los comandos principales, es muy fácil crear recetas y levantar diferentes contenedores, coordinadamente.
+
+ 
+
+Escenario: Crear un contenedor con Jekyll
+
+ 
+
+Supongamos que quisiéramos crear un container con Jekyll, para poder producir este sitio consistentemente. El contenedor debería tener la versión correcta de Ruby, y todas las gemas que necesita Jekyll, independientemente de lo que haya instalado en el host.
+
+Jekyll es un generador de contenido estático hecho en Ruby. Requiere una cantidad de gemas importante como parte de su instalación.
+
+Gestionar Ruby no es tan standard, y lo recomendable es que usemos  o RBENV como manejadores de versiones de Ruby. También las Gems deben ser siempre cierta versión en particular.
+
+Para simplificar, construiremos una receta de Docker Compose que nos permita armar un contenedor con Ruby (2.4.1=, instalar todas las gemas necesarias, y además habilitar la funcionalidad LiveReload para generar el sitio automáticamente.
+
+ 
+
+Paso 0: Instalamos Jekyll localmente
+
+ 
+
+Creamos una carpeta de proyecto ./site.
+
+Es necesario instalarlo en localmente, para poder crear el sitio por primera vez. El host (o tu ordenador de desarrollo) debe tener Ruby 2.1 instalado.
+
+gem install bundler
+
+gem install jekyll
+
+jekyll new site
+
+ 
+
+Paso 1: Creamos un Dockerfile.
+
+ 
+
+El Dockerfile nos permitirá definir las funciones básicas del contenedor. Debemos crearlo dentro de la carpeta site, junto con el source del sitio en Jekyll.
+
+FROM ruby: 2.4-alpine
+
+RUN apk update && apk add build-base nodejs tzdata
+
+RUN mkdir /app
+
+WORKDIR /app
+
+COPY Gemfile Gemfile.lock ./
+
+RUN gem install bundler
+
+RUN bundle install --binstubs
+
+ 
+
+FROM indica que Docker debe utilizar una receta de Ruby 2.4 preparada para la distribución Alpine Linux. Esta receta la obtendrá de Docker Hub. La versión Alpine de Linux contiene recetas de imágenes Docker que ocupan muy poco espacio. Para aplicaciones sencillas, donde el uso de Ruby no es extremo, es más que suficiente y recomendable.
+
+ 
+
+El resto del Dockerfile, lo que hace es generar un directorio para la aplicación en el contenedor (/app), copiar allí el código de Jekyll de nuestro sitio, e instalar todas las gemas necesarias (con el comando “bundle install”).
+
+ 
+
+De este modo, el contenedor incluirá en la carpeta /app, el sitio Jekyll instalado, junto con sus gemas, todo en Ruby 2.4 (versión alpine)
+
+ 
+
+Importante: Todo Dockerfile debe terminar en un comando CMD o en un ENTRYPOINT, pero en este caso, no lo usamos, ya que lanzaremos un comando directamente desde la receta de Docker Compose. Es decir, este Dockerfile se emplea solamente para construir el contenedor y configurarlo. No es autoejecutable.
+
+ 
+
+Paso 2: Creamos un docker-compose.yml
+
+ 
+
+Docker Compose, por defecto, busca instrucciones en el archivo docker-compose.yml.
+
+Ejemplo:
+
+version: '3'
+
+services:
+
+  jekyll:
+
+    build: .
+
+    command: bundle exec jekyll serve --incremental --host 0.0.0.0
+
+    ports:
+
+      - "4000:4000" # jekyll serve
+
+    volumes:
+
+      - .:/app
+
+ 
+
+“version ‘3’: Los archivos docker-compose.yml son versionados, lo que significa que es muy importante indicar la version de las instrucciones que queremos darle. A medida de que Docker evoluciona, habrá nuevas versiones, pero de todos modos, siempre hay compatibilidad hacia atrás, al indicar la version de la receta.
+
+ 
+
+“jekyll”: Indica el nombre del servicio. Podría ser cualquier nombre. La idea es que el nombre indique el tipo de servicio que estamos construyendo. Ej: MySQL, FrontEndNGINX, etc.
+
+ 
+
+“build .”: Se utiliza para indicar donde está el Dockerfile que queremos utilizar para crear el contenedor. Al definir “.” automaticamente considerará el Dockerfile existente en directorio actual.
+
+ 
+
+“command”: Una vez creado el contenedor, aquí lanzamos el comando que permite ejecutar Jekyll, en modo servidor. El comando “–host 0.0.0.0” sirve para mapear el contenedor al sistema operativo host (el cual estamos utilizando para desarrollar).
+
+ 
+
+“ports”: Aquí mapeamos los puertos locales 4000 (webserver jekyll) y 35729 (livereload) al servidor host. Esto permitirá que accediendo a Localhost:4000 podamos probar el sitio generador por Jekyll
+
+ 
+
+“volumes”: Aquí hacemos que el directorio actual se mapee directamente con el /app, lugar donde hemos creado la aplicación. De este modo, cualquier cambio en el directorio local en el host, se hará de inmediato en el contenedor.
+
+ 
+
+Luego, con el comando “docker-compose up”, le damos instrucciones a Docker para que cree el contenedor, según Dockerfile y lo ejecute, con el comando en el Docker-Compose.
+
+ 
+
+Algunas consideraciones:
+
+ 
+
+docker-compose up: da instrucciones a Docker para crear el contendor y ejecutarlo.
+
+docker-compose down: apaga todos los servicios que levantó con docker-compose up.
+
+docker-compose ps: permite ver los contenedores funcionando.
+
+docker-compose exec: permite ejecutar un comando a uno de los servicios levantados de Docker-compose.
+
+ 
+
+Por último, una vez que el contenedor está ejecutando, accede con tu browser a http://localhost:4000 para poder ver su sitio dentro del contenedor Docker.
+
