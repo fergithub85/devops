@@ -1,0 +1,35 @@
+git github
+Git es un sistema de control de versiones distribuido, diseñado por Linus Torvalds. Está pensando en la eficiencia y la confiabilidad del mantenimiento de versiones de aplicaciones cuando estas tienen un gran número de archivos de código fuente.
+
+📌Git está optimizado para guardar cambios de forma incremental.
+📌Permite contar con un historial, regresar a una versión anterior y agregar funcionalidades.
+📌Lleva un registro de los cambios que otras personas realicen en los archivos.
+
+Git fue diseñado para operar en un entorno Linux. Actualmente, es multiplataforma, es decir, es compatible con Linux, MacOS y Windows. En la máquina local se encuentra Git, se utiliza bajo la terminal o línea de comandos y tiene comandos como merge, pull, add, commit y rebase, entre otros.
+
+git status
+git clone
+git add archivo.txt
+git branch
+
+----------------------------------PRIMEROS PASOS 
+git@ipserver:nombre_repositorio.git
+
+git init (inicia repositorio)
+
+FBartucci@SAR-138424 MINGW64 ~
+$ git init
+Initialized empty Git repository in C:/Users/Fbartucci/.git/
+
+
+si salen archivos en rojo , son los que hay que subir
+
+ git add docker-compose.yml
+  git status
+
+git add docker.txt
+
+git commit
+git push
+
+
