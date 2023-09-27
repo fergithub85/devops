@@ -1,0 +1,46 @@
+#version del docker compose
+version: '3.1'
+#lista de servicios a emplear
+services:
+#wordpress referencia(identifica) al contenedor
+  wordpress:
+#imagen a utilizar por este contenedor
+    image: wordpress:php7.4-apache
+#puertos
+    ports:
+#puerto 8003 de host mapea el 80 en el contenedor
+      - 8003:80
+#volumen
+    volumes:
+      - "$PWD/html:/var/www/html"
+#variables de entorno
+    environment:
+#nombre del contenedor con el servicio de mysql
+      WORDPRESS_DB_HOST: mysql
+#nombre de usuario de la base de datos
+      WORDPRESS_DB_USER: root
+#contraseña de usuario de la base de datos
+      WORDPRESS_DB_PASSWORD: root
+#nombre de la base de datos
+      WORDPRESS_DB_NAME: wordpress
+#enlaces
+    links:
+#mysql es accedible con el mismo nombre en el contenedor de wordpress
+      - mysql:mysql
+
+#mysql referencia al servicio de mysql
+  mysql:
+#imagen a utilizar
+    image: mysql:8.0.13
+#se usa una funcion de autenticacion nativa para evitar usar la que por defecto usa mysql 8
+    command: --default-authentication-plugin=mysql_native_password
+#variables de entorno
+    environment:
+#nombre de la base de datos
+      MYSQL_DATABASE: wordpress
+#contraseña del usuario root
+      MYSQL_ROOT_PASSWORD: root
+#volumen
+    volumes:
+#indica donde leera el contenedor los datos la siguiente vez que inicie, se le da un volumen en host y contenedor para que arranque en cualquiera
+      - "$PWD/data:/var/lib/mysql"
