@@ -1,0 +1,8 @@
+PROCESOS
+
+Get-Process | Where-Object {$_.ProcessName -eq "notepad"} | Stop-Process
+Get-Process | Where-Object {$_.ProcessName -eq "WINWORD"} | Stop-Process
+Get-Process | Where-Object {$_.Id -eq 1234} | Stop-Process
+
+Stop-Process -Id <ID_del_proceso>
+
