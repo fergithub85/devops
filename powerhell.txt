@@ -1,15 +1,25 @@
-PRACTICA POWERSELL
+PRACTICA POWERSHELL
 
 Get-Process | Where-Object {$_.ProcessName -eq "notepad"} | Stop-Process
 Get-Process | Where-Object {$_.ProcessName -eq "WINWORD"} | Stop-Process
 Get-Process | Where-Object {$_.Id -eq 1234} | Stop-Process
-
+Get-LocalUser -Name SOPORTE | fl    --"informacion detallada de cuenta de usuario"
 Stop-Process -Id <ID_del_proceso>
-
 Get-ChildItem (como un dir)
+New-LocalUser Fer -NoPassword  --"genero un usuario sin clave"
+Get-NetIPAddress  --"obtener informacion de red"
+
+
 
 Set-ExecutionPolicy restricted  --(cambio -config de directivas en equipo)
 Write-Host "hola mundo"
+
+------------------declaro variable"
+$nombre ="hola"
+Write-Host $nombre
+----ADMINISTRACION AVANZADA DE USUARIOS--------------------------
+
+* Get-LocalUser -Name SOPORTE | fl
 
 
 
