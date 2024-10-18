@@ -20,6 +20,16 @@ Write-Host $nombre
 ----ADMINISTRACION AVANZADA DE USUARIOS--------------------------
 
 * Get-LocalUser -Name SOPORTE | fl
+*******************Networkin PowerShell***********
+
+Test-Connection google.com 
+tracert google.com
+Test-NetConnection google.com -TraceRoute
+$test.RemoteAddress
+Get-NetAdapter
+Get-NetIPConfiguration
+
+
 
 
 
