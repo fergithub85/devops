@@ -30,6 +30,72 @@ Get-NetAdapter
 Get-NetIPConfiguration
 
 
+ññññññññññññ
+SKILLS TECNICOS REQUERIDOS SEGÚN CARGO JERARQUICO
+Sr Infraestructure Administrator
+•	Servicios Cloud (Azure): Virtual Networks, Virtual Machines, Storage Accounts, SQL Database, Key
+•	DevOps: Azure Kubernetes Service
+•	(Pipelines para build y deploy en Kubernetes, apps en AppStore y PlayStore)
+•	Scripting: Powershell, Python
+•	Virtualizacion: VMware ESXi, vCenter
+•	Infraestructura: Windows Server y roles: AD y GPOs, DNS, IIS, DHCP
+Infrastructure Operations Analyst
+•	Windows OS administration  
+•	AD, DNS, DHCP 
+•	VMware vSphere 
+•	Microsoft Azure 
+•	SCCM 
+•	PowerShell 
+•	AWS cloud architecture 
+•	Basic Linux 
+Analista SSR de Infraestructura
+•	VPN, DC, DNS,  AD
+•	Servidores (Windows) virtualizados
+•	(GCP) 
+•	Seguridad informática. 
+•	Configuración de routers Cisco (Vlans, Vpn, Nat, Forward,Wifi)
+•	SQL Server 
+•	Configuración de VMWare, storage.
+•	Linux (Centos/Ubuntu)
+Administrador de Networking Ssr
+•	Fortinet
+•	Configuración y Diagnóstico de Switches Cisco L2 y L3 
+•	Protocolos de Routing (BGP, OSPF, SD-WAN)
+•	Networking en AWS (Security Groups, Route Tables)
+•	Cisco Catalyst y Nexus (ACL, Port Channel, VPC): 
+•	Redes LAN de oficina con equipamiento Aruba (Switches, APs, Aruba Central)
+Analista de Networking JR
+•	2 años de experiencia
+•	Conocimiento básico en redes (VLANs, TCP/IP, enrutamiento).
+•	Familiaridad con dispositivos de red como switches y routers.
+•	Herramientas de monitoreo (deseable).
+•	Conocimiento de configuración y administrador de dispositivos de networking
+•	Buen manejo de la documentación técnica.
+Analista Devops Jr
+
+•	Python
+•	Lambda, EC2, S3, RDS, IAM, CloudFormation, CLI y SDKs
+•	Docker, Kubernetes, herramientas de CI/CD 
+•	AWS CloudWatch 
+•	Frameworks de seguridad como GDPR
+•	Web Application Firewall (WAF)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Merakisrt1*
+
 
 
 
